@@ -15,47 +15,11 @@ public class Interacao : MonoBehaviour
     private XRController controladorDireito;
     private bool preso = true;
 
-    public InputAction botao;
+
     void Start()
     {
         centro = transform.parent;
         rigidbody = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        ///if (preso)
-        ///{
-        ///    rigidbody.isKinematic = true;
-        ///}
-        ///else {             
-        ///    rigidbody.isKinematic = false; 
-        ///}
-        
-    }
-
-    private void OnEnable()
-    {
-        botao.Enable();
-        botao.performed += OnBotaoPressionado;
-    }
-
-    private void OnDisable()
-    {
-        botao.Disable();
-        botao.performed -= OnBotaoPressionado;
-    }
-
-    private void OnBotaoPressionado(InputAction.CallbackContext context)
-    {
-        rigidbody.isKinematic = true;
-        ///Resetar a posiçao e velocidade do objeto
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.angularVelocity = Vector3.zero;
-
-        transform.parent = centro;
-        transform.localPosition = Vector3.zero;
-        rigidbody.isKinematic = false;
     }
 
     public void Segurar()
