@@ -8,12 +8,16 @@ public class MenuControlador : MonoBehaviour
 {
     public List<Rigidbody> rigidbodies;
     public List<GameObject> objetos;
+    public GameObject[] centros;
     public float velocidade;
-    public TextMeshProUGUI velocimetro;
+    public TextMeshProUGUI[] velocimetros;
+    public Toggle[] touggles;
+    public bool linhas;
 
     public void Update()
     {
-        velocimetro.text = (velocidade/5).ToString("F1") + " X";
+        velocimetros[0].text = (velocidade/5).ToString("F1") + " X";
+        velocimetros[1].text = (velocidade/5).ToString("F1") + " X";
     }
     public void alterarVelocidade(float novaVelocidade)
     {
@@ -21,6 +25,7 @@ public class MenuControlador : MonoBehaviour
     }
     public void Start()
     {
+        linhas = true;
 
         for (int i = 0; i < objetos.Count; i++)
         {
@@ -44,5 +49,26 @@ public class MenuControlador : MonoBehaviour
         rigidbody.transform.localPosition = Vector3.zero;
         rigidbody.transform.localRotation = Quaternion.identity;
         rigidbody.isKinematic = false;
+    }
+
+    public void DesativarLinhas()
+    {
+        Debug.Log("Desativando linhas: ");
+
+        linhas = !linhas;
+
+        for (int i = 0; i < touggles.Length; i++)
+        {
+            if (touggles[i].isOn != linhas)
+            {
+                Debug.Log("Corrigindo para" + linhas);
+                touggles[i].isOn = linhas;
+
+                for (int j = 0; j < centros.Length; j++)
+                {
+                    centros[j].GetComponent<TrailRenderer>().enabled = linhas;
+                }
+            }
+        }
     }
 }

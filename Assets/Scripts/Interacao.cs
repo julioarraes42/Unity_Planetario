@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR;
+using UnityEngine.UI;
 
 public class Interacao : MonoBehaviour
 {
@@ -28,16 +29,30 @@ public class Interacao : MonoBehaviour
         segurarSom.Play();
     }
 
-    private void OnCollisionEnter(Collision colisao)
+    public void Largar()
     {
-        if(colisao.gameObject.CompareTag("Planeta"))
+        Toggle toggle = GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("Panel/Toggle").GetComponent<Toggle>();
+        if (toggle.isOn)
         {
-            Vector3 pontoImpacto = colisao.contacts[0].point;
-
-            Quaternion rotacao = Quaternion.FromToRotation(Vector3.up, colisao.contacts[0].normal);
-            Instantiate(particulas, pontoImpacto, rotacao);
+            rigidbody.isKinematic = true;
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
+            rigidbody.transform.localPosition = Vector3.zero;
+            rigidbody.transform.localRotation = Quaternion.identity;
+            rigidbody.isKinematic = false;
         }
     }
+
+    //private void OnCollisionEnter(Collision colisao)
+    //{
+    //    if(colisao.gameObject.CompareTag("Planeta"))
+    //    {
+    //       Vector3 pontoImpacto = colisao.contacts[0].point;
+    //
+    //      Quaternion rotacao = Quaternion.FromToRotation(Vector3.up, colisao.contacts[0].normal);
+    //        Instantiate(particulas, pontoImpacto, rotacao);
+    //    }
+    //}
 
 
 }
