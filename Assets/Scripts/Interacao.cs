@@ -20,11 +20,13 @@ public class Interacao : MonoBehaviour
     void Start()
     {
         centro = transform.parent;
+        GetComponent<Rigidbody>().isKinematic = true;
         rigidbody = GetComponent<Rigidbody>();
     }
 
     public void Segurar()
     {
+        rigidbody.isKinematic = false;
         transform.parent = null;
         segurarSom.Play();
     }
@@ -39,10 +41,12 @@ public class Interacao : MonoBehaviour
             rigidbody.angularVelocity = Vector3.zero;
             rigidbody.transform.localPosition = Vector3.zero;
             rigidbody.transform.localRotation = Quaternion.identity;
+        }
+        else
+        {
             rigidbody.isKinematic = false;
         }
     }
-
     //private void OnCollisionEnter(Collision colisao)
     //{
     //    if(colisao.gameObject.CompareTag("Planeta"))
