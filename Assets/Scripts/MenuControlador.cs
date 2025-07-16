@@ -13,6 +13,7 @@ public class MenuControlador : MonoBehaviour
     public TextMeshProUGUI[] velocimetros;
     public Toggle[] touggles;
     public bool linhas;
+    public GameObject sol;
 
     public void Update()
     {
@@ -68,6 +69,18 @@ public class MenuControlador : MonoBehaviour
                 {
                     centros[j].GetComponent<TrailRenderer>().enabled = linhas;
                 }
+            }
+        }
+    }
+
+    public void SoltarTodos()
+    {
+        if (!sol.GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("Panel/Toggle").GetComponent<Toggle>().isOn)
+        {
+            for (int i = 0; i < objetos.Count; i++)
+            {
+                objetos[i].GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("Panel/Toggle").GetComponent<Toggle>().isOn = false;
+                objetos[i].GetComponent<Rigidbody>().isKinematic = false;
             }
         }
     }

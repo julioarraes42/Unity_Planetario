@@ -244,7 +244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.52, y: -4.68}
+  m_AnchoredPosition: {x: -0.51999664, y: -4.6800003}
   m_SizeDelta: {x: 22.57, y: 31.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &15398148
@@ -885,7 +885,7 @@ Transform:
   m_GameObject: {fileID: 204466381}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 9.557036, y: 4.5300007, z: -2.1299984}
+  m_LocalPosition: {x: 9.557036, y: 4.53, z: -3.06}
   m_LocalScale: {x: 106.02851, y: 106.02851, z: 106.02851}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -910,7 +910,7 @@ MonoBehaviour:
   EixoMenor: 3.44
   Velocidade: 3
   velocidadeAtual: 0
-  angulo: 0
+  angulo: 210
   menuControlador: {fileID: 1854053437}
   linha: 0
 --- !u!1 &221229759
@@ -1379,6 +1379,35 @@ MonoBehaviour:
   menuInformacoes: {fileID: 834820867482655139, guid: 03b6a6ca28f59644bba3b7aacc2e1def,
     type: 3}
   menuInstanciadoInformacoes: {fileID: 0}
+--- !u!114 &246591799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246591781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773548b79729dd42b8e2b7cb1f678a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 10
+--- !u!114 &246591800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246591781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sol: {fileID: 1886273495}
+  massaSol: 20
+  constanteGravitacional: 0.25
 --- !u!1 &281687091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,7 +1939,7 @@ MonoBehaviour:
   EixoMenor: 4.307
   Velocidade: 2.4
   velocidadeAtual: 0
-  angulo: 0
+  angulo: 110
   menuControlador: {fileID: 1854053437}
   linha: 0
 --- !u!1 &451749090
@@ -1948,7 +1977,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.29999924, y: -48.1}
+  m_AnchoredPosition: {x: -0.29999542, y: -48.1}
   m_SizeDelta: {x: -6.4, y: -105.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451749092
@@ -2040,7 +2069,7 @@ MonoBehaviour:
   EixoMenor: 2.73
   Velocidade: 3.5
   velocidadeAtual: 0
-  angulo: 0
+  angulo: 180
   menuControlador: {fileID: 1854053437}
   linha: 0
 --- !u!1 &542382024
@@ -2405,6 +2434,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1115633959}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8c8dcfb651b8f64fa4be350550fdc21,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1115633962}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8c8dcfb651b8f64fa4be350550fdc21,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1115633963}
   m_SourcePrefab: {fileID: 100100000, guid: c8c8dcfb651b8f64fa4be350550fdc21, type: 3}
 --- !u!1 &593118903
 GameObject:
@@ -2733,6 +2770,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 246591796}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49684251b2c0e5b42a7d6b1c11bbe87d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 246591799}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49684251b2c0e5b42a7d6b1c11bbe87d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 246591800}
   m_SourcePrefab: {fileID: 100100000, guid: 49684251b2c0e5b42a7d6b1c11bbe87d, type: 3}
 --- !u!1 &684500617
 GameObject:
@@ -2785,7 +2830,7 @@ MonoBehaviour:
   EixoMenor: 1.58
   Velocidade: 4.7
   velocidadeAtual: 0
-  angulo: 0
+  angulo: 50
   menuControlador: {fileID: 1854053437}
   linha: 0
 --- !u!1 &701552781
@@ -3209,7 +3254,7 @@ MonoBehaviour:
   EixoMenor: 11.705
   Velocidade: 0.7
   velocidadeAtual: 0
-  angulo: 0
+  angulo: 10
   menuControlador: {fileID: 1854053437}
   linha: 0
 --- !u!1 &832575517
@@ -3968,6 +4013,35 @@ MonoBehaviour:
   menuInformacoes: {fileID: 834820867482655139, guid: 03b6a6ca28f59644bba3b7aacc2e1def,
     type: 3}
   menuInstanciadoInformacoes: {fileID: 0}
+--- !u!114 &917417699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917417681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773548b79729dd42b8e2b7cb1f678a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 10
+--- !u!114 &917417700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917417681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sol: {fileID: 1886273495}
+  massaSol: 20
+  constanteGravitacional: 0.25
 --- !u!1 &925359932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,6 +4225,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189366016}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7bb1ddf4038cdc644861de6f3f117861,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1189366019}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7bb1ddf4038cdc644861de6f3f117861,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1189366020}
   m_SourcePrefab: {fileID: 100100000, guid: 7bb1ddf4038cdc644861de6f3f117861, type: 3}
 --- !u!1 &1000268432
 GameObject:
@@ -4535,7 +4617,7 @@ MonoBehaviour:
   EixoMenor: 9.193
   Velocidade: 1
   velocidadeAtual: 0
-  angulo: 0
+  angulo: 80
   menuControlador: {fileID: 1854053437}
   linha: 0
 --- !u!1 &1115633944 stripped
@@ -4835,6 +4917,35 @@ MonoBehaviour:
   menuInformacoes: {fileID: 834820867482655139, guid: 03b6a6ca28f59644bba3b7aacc2e1def,
     type: 3}
   menuInstanciadoInformacoes: {fileID: 0}
+--- !u!114 &1115633962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115633944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773548b79729dd42b8e2b7cb1f678a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 10
+--- !u!114 &1115633963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115633944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sol: {fileID: 1886273495}
+  massaSol: 20
+  constanteGravitacional: 0.25
 --- !u!1 &1121262205
 GameObject:
   m_ObjectHideFlags: 0
@@ -5369,7 +5480,7 @@ MonoBehaviour:
   EixoMenor: 6.902
   Velocidade: 1.3
   velocidadeAtual: 0
-  angulo: 0
+  angulo: 300
   menuControlador: {fileID: 1854053437}
   linha: 0
 --- !u!1001 &1185883385
@@ -5479,6 +5590,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1293186917}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a5f4a7dbc8910a9498f773b57dc906ec,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1293186920}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a5f4a7dbc8910a9498f773b57dc906ec,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1293186921}
   m_SourcePrefab: {fileID: 100100000, guid: a5f4a7dbc8910a9498f773b57dc906ec, type: 3}
 --- !u!1 &1188230037
 GameObject:
@@ -5853,6 +5972,35 @@ MonoBehaviour:
   menuInformacoes: {fileID: 834820867482655139, guid: 03b6a6ca28f59644bba3b7aacc2e1def,
     type: 3}
   menuInstanciadoInformacoes: {fileID: 0}
+--- !u!114 &1189366019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189366001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773548b79729dd42b8e2b7cb1f678a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 10
+--- !u!114 &1189366020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189366001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sol: {fileID: 1886273495}
+  massaSol: 20
+  constanteGravitacional: 0.25
 --- !u!1 &1195576552 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e3093d7fcc813c94fb2dd2f80f87ded4,
@@ -6150,6 +6298,35 @@ MonoBehaviour:
   menuInformacoes: {fileID: 834820867482655139, guid: 03b6a6ca28f59644bba3b7aacc2e1def,
     type: 3}
   menuInstanciadoInformacoes: {fileID: 0}
+--- !u!114 &1195576570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195576552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773548b79729dd42b8e2b7cb1f678a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 10
+--- !u!114 &1195576571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195576552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sol: {fileID: 1886273495}
+  massaSol: 20
+  constanteGravitacional: 0.25
 --- !u!1 &1236912055
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,7 +6378,7 @@ MonoBehaviour:
   EixoMenor: 14.616
   Velocidade: 0.5
   velocidadeAtual: 0
-  angulo: 0
+  angulo: 250
   menuControlador: {fileID: 1854053437}
   linha: 0
 --- !u!1 &1245097895
@@ -6733,6 +6910,35 @@ MonoBehaviour:
   menuInformacoes: {fileID: 834820867482655139, guid: 03b6a6ca28f59644bba3b7aacc2e1def,
     type: 3}
   menuInstanciadoInformacoes: {fileID: 0}
+--- !u!114 &1293186920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293186902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773548b79729dd42b8e2b7cb1f678a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 10
+--- !u!114 &1293186921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293186902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sol: {fileID: 1886273495}
+  massaSol: 20
+  constanteGravitacional: 0.25
 --- !u!1 &1305528423
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,7 +6974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.20000076, y: -3.199997}
+  m_AnchoredPosition: {x: -0.20000458, y: -3.199997}
   m_SizeDelta: {x: -7.95, y: -71.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305528425
@@ -6916,6 +7122,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1326833603}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f75c95cd88334c4d87155f5c9d12d8e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1326833606}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f75c95cd88334c4d87155f5c9d12d8e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1326833607}
   m_SourcePrefab: {fileID: 100100000, guid: 4f75c95cd88334c4d87155f5c9d12d8e, type: 3}
 --- !u!4 &1326833593 stripped
 Transform:
@@ -7214,6 +7428,35 @@ MonoBehaviour:
   menuInformacoes: {fileID: 834820867482655139, guid: 03b6a6ca28f59644bba3b7aacc2e1def,
     type: 3}
   menuInstanciadoInformacoes: {fileID: 0}
+--- !u!114 &1326833606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326833594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773548b79729dd42b8e2b7cb1f678a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 10
+--- !u!114 &1326833607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326833594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sol: {fileID: 1886273495}
+  massaSol: 20
+  constanteGravitacional: 0.25
 --- !u!1 &1329899904
 GameObject:
   m_ObjectHideFlags: 0
@@ -7710,6 +7953,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 917417696}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49008460955cd094aa9268c1ef872f95,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917417699}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49008460955cd094aa9268c1ef872f95,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917417700}
   m_SourcePrefab: {fileID: 100100000, guid: 49008460955cd094aa9268c1ef872f95, type: 3}
 --- !u!1 &1492545706
 GameObject:
@@ -8497,27 +8748,27 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d35998f0c62b7ee41bf45ffe40ddeda0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d35998f0c62b7ee41bf45ffe40ddeda0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d35998f0c62b7ee41bf45ffe40ddeda0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d35998f0c62b7ee41bf45ffe40ddeda0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d35998f0c62b7ee41bf45ffe40ddeda0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d35998f0c62b7ee41bf45ffe40ddeda0,
         type: 3}
@@ -8668,6 +8919,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1923287784}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d35998f0c62b7ee41bf45ffe40ddeda0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1923287785}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d35998f0c62b7ee41bf45ffe40ddeda0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1923287786}
   m_SourcePrefab: {fileID: 100100000, guid: d35998f0c62b7ee41bf45ffe40ddeda0, type: 3}
 --- !u!1001 &1627061941
 PrefabInstance:
@@ -9220,6 +9479,7 @@ MonoBehaviour:
   - {fileID: 1567769607}
   - {fileID: 561098033}
   linhas: 0
+  sol: {fileID: 1886273494}
 --- !u!1001 &1855808668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9251,7 +9511,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e3093d7fcc813c94fb2dd2f80f87ded4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e3093d7fcc813c94fb2dd2f80f87ded4,
         type: 3}
@@ -9337,6 +9597,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1195576567}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3093d7fcc813c94fb2dd2f80f87ded4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1195576570}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e3093d7fcc813c94fb2dd2f80f87ded4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1195576571}
   m_SourcePrefab: {fileID: 100100000, guid: e3093d7fcc813c94fb2dd2f80f87ded4, type: 3}
 --- !u!1 &1886273494
 GameObject:
@@ -9541,6 +9809,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1886273501}
         m_TargetAssemblyTypeName: Interacao, Assembly-CSharp
         m_MethodName: Largar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1854053437}
+        m_TargetAssemblyTypeName: MenuControlador, Assembly-CSharp
+        m_MethodName: SoltarTodos
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10085,6 +10365,35 @@ MonoBehaviour:
   menuInformacoes: {fileID: 834820867482655139, guid: 03b6a6ca28f59644bba3b7aacc2e1def,
     type: 3}
   menuInstanciadoInformacoes: {fileID: 0}
+--- !u!114 &1923287785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923287777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773548b79729dd42b8e2b7cb1f678a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 10
+--- !u!114 &1923287786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923287777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sol: {fileID: 1886273495}
+  massaSol: 20
+  constanteGravitacional: 0.25
 --- !u!1 &2033215695
 GameObject:
   m_ObjectHideFlags: 0
