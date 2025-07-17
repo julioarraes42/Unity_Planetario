@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,16 +10,17 @@ public class MenuControlador : MonoBehaviour
     public List<Rigidbody> rigidbodies;
     public List<GameObject> objetos;
     public GameObject[] centros;
+    public GameObject[] planetas;
     public float velocidade;
-    public TextMeshProUGUI[] velocimetros;
+    public TextMeshProUGUI velocimetro;
     public Toggle[] touggles;
     public bool linhas;
     public GameObject sol;
 
+
     public void Update()
     {
-        velocimetros[0].text = (velocidade/5).ToString("F1") + " X";
-        velocimetros[1].text = (velocidade/5).ToString("F1") + " X";
+        velocimetro.text = (velocidade/10).ToString("F1") + " X";
     }
     public void alterarVelocidade(float novaVelocidade)
     {
@@ -36,10 +38,27 @@ public class MenuControlador : MonoBehaviour
 
     public void resetar()
     {
+        for (int j = 0; j < planetas.Length; j++)
+        {
+            if (planetas[j].GetComponent<MenuInformacoesControler>().name == "Saturno")
+            {
+                planetas[j].transform.Find("Planeta").GetComponent<MeshRenderer>().enabled = true;
+                planetas[j].transform.Find("Anel").GetComponent<MeshRenderer>().enabled = true;
+                planetas[j].GetComponent<SphereCollider>().enabled = true;
+            }
+            else
+            {
+                planetas[j].GetComponent<MeshRenderer>().enabled = true;
+                planetas[j].GetComponent<SphereCollider>().enabled = true;
+            }
+
+        }
+
         for (int i = 0; i < rigidbodies.Count; i++)
         {
             ResetarObjeto(rigidbodies[i]);
         }
+
     }
 
     public void ResetarObjeto(Rigidbody rigidbody)
@@ -49,7 +68,6 @@ public class MenuControlador : MonoBehaviour
         rigidbody.angularVelocity = Vector3.zero;
         rigidbody.transform.localPosition = Vector3.zero;
         rigidbody.transform.localRotation = Quaternion.identity;
-        rigidbody.isKinematic = false;
     }
 
     public void DesativarLinhas()
@@ -58,18 +76,9 @@ public class MenuControlador : MonoBehaviour
 
         linhas = !linhas;
 
-        for (int i = 0; i < touggles.Length; i++)
+        for (int j = 0; j < centros.Length; j++)
         {
-            if (touggles[i].isOn != linhas)
-            {
-                Debug.Log("Corrigindo para" + linhas);
-                touggles[i].isOn = linhas;
-
-                for (int j = 0; j < centros.Length; j++)
-                {
-                    centros[j].GetComponent<TrailRenderer>().enabled = linhas;
-                }
-            }
+            centros[j].GetComponent<TrailRenderer>().enabled = linhas;
         }
     }
 

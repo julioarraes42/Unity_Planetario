@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR;
 using UnityEngine.UI;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Interacao : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class Interacao : MonoBehaviour
     private Rigidbody rigidbody;
     private XRController controladorDireito;
     private bool preso = true;
-
 
     void Start()
     {
@@ -29,6 +29,11 @@ public class Interacao : MonoBehaviour
         rigidbody.isKinematic = false;
         transform.parent = null;
         segurarSom.Play();
+        if(CompareTag("Planeta"))
+        {
+            transform.Find("Linha").GetComponent<TrailRenderer>().enabled = false;
+            Debug.Log("Linha desativada para o planeta: " + gameObject.name);
+        }
     }
 
     public void Largar()
@@ -46,17 +51,33 @@ public class Interacao : MonoBehaviour
         {
             rigidbody.isKinematic = false;
         }
+        if(CompareTag("Planeta"))
+        {
+            transform.Find("Linha").GetComponent<TrailRenderer>().enabled = true;
+        }
     }
-    //private void OnCollisionEnter(Collision colisao)
-    //{
-    //    if(colisao.gameObject.CompareTag("Planeta"))
-    //    {
-    //       Vector3 pontoImpacto = colisao.contacts[0].point;
-    //
-    //      Quaternion rotacao = Quaternion.FromToRotation(Vector3.up, colisao.contacts[0].normal);
-    //        Instantiate(particulas, pontoImpacto, rotacao);
-    //    }
-    //}
+    private void OnCollisionEnter(Collision colisao)
+    {
+        if(colisao.gameObject.CompareTag("Estrela"))
+        {
+            if (GetComponent<MenuInformacoesControler>().nome == "Saturno")
+            {
+                transform.Find("Planeta").GetComponent<MeshRenderer>().enabled = false;
+                transform.Find("Anel").GetComponent<MeshRenderer>().enabled = false;
+                gameObject.GetComponent<SphereCollider>().enabled = false;
+            }
+            else
+            {
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                gameObject.GetComponent<SphereCollider>().enabled = false;
+            }
+
+            Vector3 pontoImpacto = colisao.contacts[0].point;
+    
+            Quaternion rotacao = Quaternion.FromToRotation(Vector3.up, colisao.contacts[0].normal);
+            Instantiate(particulas, pontoImpacto, rotacao);
+        }
+    }
 
 
 }

@@ -1,12 +1,12 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class PlanetasControler : MonoBehaviour
 {
     public GameObject[] corposSelestes;
-
 
     public void resetarPlanet(GameObject planeta)
     {

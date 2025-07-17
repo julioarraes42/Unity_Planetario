@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,7 @@ public class JogadorControler : MonoBehaviour
 {
     public GameObject menu;
     public InputAction botao;
+
 
     public void Start()
     {
