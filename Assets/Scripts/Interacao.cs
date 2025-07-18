@@ -58,7 +58,7 @@ public class Interacao : MonoBehaviour
     }
     private void OnCollisionEnter(Collision colisao)
     {
-        if(colisao.gameObject.CompareTag("Estrela"))
+        if (colisao.gameObject.CompareTag("Estrela"))
         {
             if (GetComponent<MenuInformacoesControler>().nome == "Saturno")
             {
@@ -73,7 +73,7 @@ public class Interacao : MonoBehaviour
             }
 
             Vector3 pontoImpacto = colisao.contacts[0].point;
-    
+
             Quaternion rotacao = Quaternion.FromToRotation(Vector3.up, colisao.contacts[0].normal);
             Instantiate(particulas, pontoImpacto, rotacao);
         }

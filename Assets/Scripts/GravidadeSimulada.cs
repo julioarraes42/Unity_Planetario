@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GravidadeSimulada : MonoBehaviour
 {
     public Rigidbody rb;           // Corpo do planeta
-    public Transform sol;          // Referência ao objeto "Sol"
+    public Transform[] corposCelestes; // Referência aos corpos celestes que orbitam o Sol
     public float massaSol = 1000f; // Massa do Sol
     public float constanteGravitacional = 1f;
 
@@ -17,14 +17,25 @@ public class GravidadeSimulada : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector3 direcao = sol.position - transform.position;
-        float distancia = direcao.magnitude;
-        float forca = constanteGravitacional * (massaSol * rb.mass) / (distancia * distancia);
-        Vector3 forcaGravitacional = direcao.normalized * forca;
+        for (int i = 0; i < corposCelestes.Length; i++)
+        {
+            if (corposCelestes[i] != null && i == 0)
+            {
+                Vector3 direcao = corposCelestes[i].position - transform.position;
+                float distancia = direcao.magnitude;
+                float forca = constanteGravitacional * (massaSol * rb.mass * 10) / (distancia * distancia);
+                Vector3 forcaGravitacional = direcao.normalized * forca;
 
-        rb.AddForce(forcaGravitacional);
-        //if (GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("Panel/Toggle").GetComponent<Toggle>().isOn)
-        //{
-        //}
+                rb.AddForce(forcaGravitacional);
+            }
+            else if (corposCelestes[i] != null && i > 0)
+            {
+                Vector3 direcao = corposCelestes[i].position - transform.position;
+                float distancia = direcao.magnitude;
+                float forca = constanteGravitacional * (corposCelestes[i].GetComponent<Rigidbody>().mass * rb.mass) / (distancia * distancia);
+                Vector3 forcaGravitacional = direcao.normalized * forca;
+                rb.AddForce(forcaGravitacional);
+            }
+        }
     }
 }
