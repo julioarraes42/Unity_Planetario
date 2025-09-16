@@ -93,4 +93,9 @@ public class MenuControlador : MonoBehaviour
             }
         }
     }
+
+    public void Sair()
+    {
+               Application.Quit();
+    }
 }
