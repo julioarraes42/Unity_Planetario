@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +10,9 @@ public class MenuControlador : MonoBehaviour
 {
     public List<Rigidbody> rigidbodies;
     public List<GameObject> objetos;
-    public GameObject[] centros;
+    public GameObject[] centroLinhas;
     public GameObject[] planetas;
+    public GameObject[] centros;
     public float velocidade;
     public TextMeshProUGUI velocimetro;
     public Toggle[] touggles;
@@ -76,9 +78,9 @@ public class MenuControlador : MonoBehaviour
 
         linhas = !linhas;
 
-        for (int j = 0; j < centros.Length; j++)
+        for (int j = 0; j < centroLinhas.Length; j++)
         {
-            centros[j].GetComponent<TrailRenderer>().enabled = linhas;
+            centroLinhas[j].GetComponent<TrailRenderer>().enabled = linhas;
         }
     }
 
@@ -91,6 +93,11 @@ public class MenuControlador : MonoBehaviour
                 objetos[i].GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("Panel/Toggle").GetComponent<Toggle>().isOn = false;
                 objetos[i].GetComponent<Rigidbody>().isKinematic = false;
             }
+
+            ///for (int j = 0; j < centros.Length; j++)
+            ///{
+            ///    centros[j].GetComponent<Translacao>().ativo = false;
+            ///}
         }
     }
 
