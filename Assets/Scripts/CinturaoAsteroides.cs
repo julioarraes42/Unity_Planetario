@@ -68,25 +68,29 @@ public class CinturaoAsteroides : MonoBehaviour
     {
         for (int i = 0; i < asteroides.Count; i++)
         {
-            if (!asteroides[i].GetComponent<Asteroide>().solto)
+            if (asteroides[i] != null)
             {
-                asteroides[i].GetComponent<Rigidbody>().isKinematic = true;
-                angulos[i] += velocidade * Time.deltaTime;
-                float rad = angulos[i] * Mathf.Deg2Rad;
+                if (!asteroides[i].GetComponent<Asteroide>().solto)
+                {
+                    asteroides[i].GetComponent<Rigidbody>().isKinematic = true;
+                    angulos[i] += velocidade * Time.deltaTime;
+                    float rad = angulos[i] * Mathf.Deg2Rad;
 
-                float deslocamento = deslocamentos[i];
+                    float deslocamento = deslocamentos[i];
 
-                float x = (eixoMaior + deslocamento) * Mathf.Cos(rad);
-                float z = (eixoMenor + deslocamento) * Mathf.Sin(rad);
+                    float x = (eixoMaior + deslocamento) * Mathf.Cos(rad);
+                    float z = (eixoMenor + deslocamento) * Mathf.Sin(rad);
 
-                Vector3 pos = centro.position + new Vector3(x, alturasY[i], z);
-                asteroides[i].position = pos;
+                    Vector3 pos = centro.position + new Vector3(x, alturasY[i], z);
+                    asteroides[i].position = pos;
 
-                // Rotação leve do asteroide
-                asteroides[i].Rotate(Vector3.up * Time.deltaTime * 20f);
-            }
-            else { 
-                asteroides[i].GetComponent<Rigidbody>().isKinematic = false;
+                    // Rotação leve do asteroide
+                    asteroides[i].Rotate(Vector3.up * Time.deltaTime * 20f);
+                }
+                else
+                {
+                    asteroides[i].GetComponent<Rigidbody>().isKinematic = false;
+                }
             }
         }
     }

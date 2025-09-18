@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   solto: 0
+  explosaoParticulas: {fileID: 6290212257489136586, guid: c624e28456331eb4f8e74ed436c938df,
+    type: 3}
 --- !u!114 &-8813003087802915135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +189,4 @@ MonoBehaviour:
   corposCelestes: []
   massaSol: 3
   constanteGravitacional: 1
+  velocidadeMaxima: 100

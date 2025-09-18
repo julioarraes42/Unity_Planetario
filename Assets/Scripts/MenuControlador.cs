@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MenuControlador : MonoBehaviour
@@ -18,7 +19,12 @@ public class MenuControlador : MonoBehaviour
     public Toggle[] touggles;
     public bool linhas;
     public GameObject sol;
+    public GameObject menuVelocidade;
 
+    // InputActions dos botoes
+    public InputAction botaoVelocidade;
+    public InputAction botaoLinhas;
+    public InputAction botaoResetar;
 
     public void Update()
     {
@@ -30,6 +36,7 @@ public class MenuControlador : MonoBehaviour
     }
     public void Start()
     {
+        menuVelocidade.SetActive(false);
         linhas = true;
 
         for (int i = 0; i < objetos.Count; i++)
@@ -38,7 +45,7 @@ public class MenuControlador : MonoBehaviour
         }
     }
 
-    public void resetar()
+    private void resetar(InputAction.CallbackContext context)
     {
         for (int j = 0; j < planetas.Length; j++)
         {
@@ -63,7 +70,7 @@ public class MenuControlador : MonoBehaviour
 
     }
 
-    public void ResetarObjeto(Rigidbody rigidbody)
+    private void ResetarObjeto(Rigidbody rigidbody)
     {
         rigidbody.isKinematic = true;
         rigidbody.velocity = Vector3.zero;
@@ -72,7 +79,7 @@ public class MenuControlador : MonoBehaviour
         rigidbody.transform.localRotation = Quaternion.identity;
     }
 
-    public void DesativarLinhas()
+    public void desativarLinhas(InputAction.CallbackContext context)
     {
         Debug.Log("Desativando linhas: ");
 
@@ -101,8 +108,33 @@ public class MenuControlador : MonoBehaviour
         }
     }
 
+    private void abrirMenuVelocidade(InputAction.CallbackContext context)
+    {
+        menuVelocidade.SetActive(!menuVelocidade.activeSelf);
+    }
+
     public void Sair()
     {
-               Application.Quit();
+        Application.Quit();
+    }
+
+    public void OnEnable()
+    {
+        botaoVelocidade.Enable();
+        botaoLinhas.Enable();
+        botaoResetar.Enable();
+        botaoVelocidade.performed += abrirMenuVelocidade;
+        botaoLinhas.performed += desativarLinhas;
+        botaoResetar.performed += resetar;
+    }
+
+    public void OnDisable()
+    {
+        botaoVelocidade.Disable();
+        botaoLinhas.Disable();
+        botaoResetar.Disable();
+        botaoVelocidade.performed -= abrirMenuVelocidade;
+        botaoLinhas.performed -= desativarLinhas;
+        botaoResetar.performed -= resetar;
     }
 }
