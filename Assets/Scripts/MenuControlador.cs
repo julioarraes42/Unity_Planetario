@@ -37,7 +37,7 @@ public class MenuControlador : MonoBehaviour
     public void Start()
     {
         menuVelocidade.SetActive(false);
-        linhas = true;
+        linhas = false;
 
         for (int i = 0; i < objetos.Count; i++)
         {
