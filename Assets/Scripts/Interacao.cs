@@ -29,11 +29,7 @@ public class Interacao : MonoBehaviour
         rigidbody.isKinematic = false;
         transform.parent = null;
         segurarSom.Play();
-        if(CompareTag("Planeta"))
-        {
-            transform.Find("Linha").GetComponent<TrailRenderer>().enabled = false;
-            Debug.Log("Linha desativada para o planeta: " + gameObject.name);
-        }
+        
     }
 
     public void Largar()
@@ -51,10 +47,7 @@ public class Interacao : MonoBehaviour
         {
             rigidbody.isKinematic = false;
         }
-        if(CompareTag("Planeta"))
-        {
-            transform.Find("Linha").GetComponent<TrailRenderer>().enabled = true;
-        }
+
     }
     private void OnCollisionEnter(Collision colisao)
     {

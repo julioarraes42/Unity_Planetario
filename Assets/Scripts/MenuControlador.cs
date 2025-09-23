@@ -12,6 +12,7 @@ public class MenuControlador : MonoBehaviour
     public List<Rigidbody> rigidbodies;
     public List<GameObject> objetos;
     public GameObject[] centroLinhas;
+    public GameObject[] grades;
     public GameObject[] planetas;
     public GameObject[] centros;
     public float velocidade;
@@ -81,13 +82,12 @@ public class MenuControlador : MonoBehaviour
 
     public void desativarLinhas(InputAction.CallbackContext context)
     {
-        Debug.Log("Desativando linhas: ");
-
         linhas = !linhas;
 
-        for (int j = 0; j < centroLinhas.Length; j++)
+        for (int k = 0; k < grades.Length; k++)
         {
-            centroLinhas[j].GetComponent<TrailRenderer>().enabled = linhas;
+            Debug.Log(linhas);
+            grades[k].SetActive(linhas);
         }
     }
 
