@@ -21,6 +21,7 @@ public class MenuControlador : MonoBehaviour
     public bool linhas;
     public GameObject sol;
     public GameObject menuVelocidade;
+    public GameObject asteroideControlador;
 
     // InputActions dos botoes
     public InputAction botaoVelocidade;
@@ -68,6 +69,8 @@ public class MenuControlador : MonoBehaviour
         {
             ResetarObjeto(rigidbodies[i]);
         }
+
+        asteroideControlador.GetComponent<CinturaoAsteroides>().Resetar();
 
     }
 

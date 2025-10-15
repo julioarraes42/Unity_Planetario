@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Collections;
+using UnityEngine.UI;
 
 public class CinturaoAsteroides : MonoBehaviour
 {
@@ -13,14 +14,57 @@ public class CinturaoAsteroides : MonoBehaviour
     public float larguraCinturao = 5f; 
     public float alturaCinturao = 10f;
     public float velocidade = 10f;
+    public Slider velocidadeEscala;
     public GameObject[] corposCelestes;
 
     private List<float> alturasY = new List<float>();
     private List<float> deslocamentos = new List<float>();
     private List<Transform> asteroides = new List<Transform>();
     private List<float> angulos = new List<float>();
+    private float velocidadeBase;
+    [SerializeField]private List<GameObject> asteroidesGerados = new List<GameObject>();
 
     void Start()
+    {
+        velocidadeBase = velocidade;
+
+        GerarCinturao();
+    }
+
+    void Update()
+    {
+        velocidade = velocidadeBase * (velocidadeEscala.value * 0.1f);
+
+        for (int i = 0; i < asteroides.Count; i++)
+        {
+            if (asteroides[i] != null)
+            {
+                if (!asteroides[i].GetComponent<Asteroide>().solto)
+                {
+                    asteroides[i].GetComponent<Rigidbody>().isKinematic = true;
+                    angulos[i] += velocidade * Time.deltaTime;
+                    float rad = angulos[i] * Mathf.Deg2Rad;
+
+                    float deslocamento = deslocamentos[i];
+
+                    float x = (eixoMaior + deslocamento) * Mathf.Cos(rad);
+                    float z = (eixoMenor + deslocamento) * Mathf.Sin(rad);
+
+                    Vector3 pos = centro.position + new Vector3(x, alturasY[i], z);
+                    asteroides[i].position = pos;
+
+                    // Rotação leve do asteroide
+                    asteroides[i].Rotate(Vector3.up * Time.deltaTime * 20f);
+                }
+                else
+                {
+                    asteroides[i].GetComponent<Rigidbody>().isKinematic = false;
+                }
+            }
+        }
+    }
+
+    public void GerarCinturao()
     {
         for (int i = 0; i < quantidade; i++)
         {
@@ -61,36 +105,19 @@ public class CinturaoAsteroides : MonoBehaviour
             asteroide.name = nomeUnico;
 
             asteroides.Add(asteroide.transform);
+
+            asteroidesGerados.Add(asteroide);
         }
     }
 
-    void Update()
+    public void Resetar()
     {
-        for (int i = 0; i < asteroides.Count; i++)
+        // Ativa o mesh renderer de todos os asteroides gerados
+        foreach (GameObject asteroide in asteroidesGerados)
         {
-            if (asteroides[i] != null)
+            if (asteroide != null)
             {
-                if (!asteroides[i].GetComponent<Asteroide>().solto)
-                {
-                    asteroides[i].GetComponent<Rigidbody>().isKinematic = true;
-                    angulos[i] += velocidade * Time.deltaTime;
-                    float rad = angulos[i] * Mathf.Deg2Rad;
-
-                    float deslocamento = deslocamentos[i];
-
-                    float x = (eixoMaior + deslocamento) * Mathf.Cos(rad);
-                    float z = (eixoMenor + deslocamento) * Mathf.Sin(rad);
-
-                    Vector3 pos = centro.position + new Vector3(x, alturasY[i], z);
-                    asteroides[i].position = pos;
-
-                    // Rotação leve do asteroide
-                    asteroides[i].Rotate(Vector3.up * Time.deltaTime * 20f);
-                }
-                else
-                {
-                    asteroides[i].GetComponent<Rigidbody>().isKinematic = false;
-                }
+                asteroide.GetComponent<MeshRenderer>().enabled = true;
             }
         }
     }
