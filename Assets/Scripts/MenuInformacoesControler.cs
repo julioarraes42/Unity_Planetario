@@ -17,6 +17,10 @@ public class MenuInformacoesControler : MonoBehaviour
     public GameObject menuInformacoes;
     public GameObject menuInstanciadoInformacoes;
 
+    public MenuControlador menuControlador;
+
+    private bool segurado = false;
+
     public void Start()
     {
         menuInstanciadoInformacoes = Instantiate(menuInformacoes, transform.position, Quaternion.identity);
@@ -46,9 +50,22 @@ public class MenuInformacoesControler : MonoBehaviour
             menuInstanciadoInformacoes.transform.LookAt(Camera.main.transform);
             menuInstanciadoInformacoes.transform.Rotate(0, 180, 0); // Ajustar a rotação para que fique voltado para o jogador
         }
+
+        if (menuControlador.informacoesVisiveis && segurado) {
+            menuInstanciadoInformacoes.SetActive(true);
+        } else { 
+            menuInstanciadoInformacoes.SetActive(false);
+        }
     }
     public void AbilitarMenu()
     {
-        menuInstanciadoInformacoes.SetActive(!menuInstanciadoInformacoes.activeSelf);
+        segurado = true;
     }
+    
+    public void DesabilitarMenu()
+    {
+        segurado = false;
+    }
+
+
 }

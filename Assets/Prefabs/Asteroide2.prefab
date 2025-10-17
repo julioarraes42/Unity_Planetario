@@ -95,19 +95,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e8e768178a077444ba7c136f9cb9dd4,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8645525102420048732}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e8e768178a077444ba7c136f9cb9dd4,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: -4351142563205523925}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e8e768178a077444ba7c136f9cb9dd4,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -8878956367258663359}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e8e768178a077444ba7c136f9cb9dd4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -4509885230903392862}
   m_SourcePrefab: {fileID: 100100000, guid: 0e8e768178a077444ba7c136f9cb9dd4, type: 3}
 --- !u!1 &3894933674564090603 stripped
 GameObject:
@@ -115,33 +107,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4237038819705374650}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &-8645525102420048732
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3894933674564090603}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!135 &-4351142563205523925
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -157,7 +122,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -178,20 +143,3 @@ MonoBehaviour:
   solto: 0
   explosaoParticulas: {fileID: 6290212257489136586, guid: c624e28456331eb4f8e74ed436c938df,
     type: 3}
---- !u!114 &-4509885230903392862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3894933674564090603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8955c013adad6349b6cf2954a7d9376, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  corposCelestes: []
-  massaSol: 3
-  constanteGravitacional: 1
-  velocidadeMaxima: 100

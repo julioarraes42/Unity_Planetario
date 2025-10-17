@@ -8,10 +8,18 @@ public class Asteroide : MonoBehaviour
     public GameObject explosaoParticulas;
 
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    //sera destruido e soltara particulas no EXATO local da colisao
+    //    Instantiate(explosaoParticulas, transform.position, Quaternion.identity);
+    //    GetComponent<MeshRenderer>().enabled = false;
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
         //sera destruido e soltara particulas no EXATO local da colisao
         Instantiate(explosaoParticulas, transform.position, Quaternion.identity);
         GetComponent<MeshRenderer>().enabled = false;
     }
+
 }

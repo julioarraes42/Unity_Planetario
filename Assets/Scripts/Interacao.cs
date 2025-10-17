@@ -34,7 +34,7 @@ public class Interacao : MonoBehaviour
 
     public void Largar()
     {
-        Toggle toggle = GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("Panel/Toggle").GetComponent<Toggle>();
+        Toggle toggle = GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("PermanecerOrbita/Toggle").GetComponent<Toggle>();
         if (toggle.isOn)
         {
             rigidbody.isKinematic = true;

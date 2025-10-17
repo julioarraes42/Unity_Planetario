@@ -16,25 +16,31 @@ public class MenuControlador : MonoBehaviour
     public GameObject[] planetas;
     public GameObject[] centros;
     public float velocidade;
-    public TextMeshProUGUI velocimetro;
+    public TextMeshProUGUI textoVelocidade;
     public Toggle[] touggles;
     public bool linhas;
     public GameObject sol;
     public GameObject menuVelocidade;
     public GameObject asteroideControlador;
+    //public GameObject banerInformacaoControle;
+    public bool informacoesVisiveis = false;
+
+    private float[] velocidades = { 0f, 0.2f, 0.5f, 1f, 2f, 5f, 10f};
 
     // InputActions dos botoes
     public InputAction botaoVelocidade;
     public InputAction botaoLinhas;
     public InputAction botaoResetar;
+    public InputAction botaoInformacoes;
 
     public void Update()
     {
-        velocimetro.text = (velocidade/10).ToString("F1") + " X";
+
     }
-    public void alterarVelocidade(float novaVelocidade)
+    public void alterarVelocidade(int velocidade)
     {
-        velocidade = novaVelocidade;
+        this.velocidade = velocidades[velocidade];
+        textoVelocidade.text = velocidades[velocidade].ToString();
     }
     public void Start()
     {
@@ -45,6 +51,8 @@ public class MenuControlador : MonoBehaviour
         {
             rigidbodies.Add(objetos[i].GetComponent<Rigidbody>());
         }
+
+        alterarVelocidade(3);
     }
 
     private void resetar(InputAction.CallbackContext context)
@@ -96,11 +104,11 @@ public class MenuControlador : MonoBehaviour
 
     public void SoltarTodos()
     {
-        if (!sol.GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("Panel/Toggle").GetComponent<Toggle>().isOn)
+        if (!sol.GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("PermanecerOrbita/Toggle").GetComponent<Toggle>().isOn)
         {
             for (int i = 0; i < objetos.Count; i++)
             {
-                objetos[i].GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("Panel/Toggle").GetComponent<Toggle>().isOn = false;
+                objetos[i].GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("PermanecerOrbita/Toggle").GetComponent<Toggle>().isOn = false;
                 objetos[i].GetComponent<Rigidbody>().isKinematic = false;
             }
 
@@ -121,14 +129,21 @@ public class MenuControlador : MonoBehaviour
         Application.Quit();
     }
 
+    public void InformacoesVisiveis(InputAction.CallbackContext context)
+    {
+        informacoesVisiveis = !informacoesVisiveis;
+    }
+
     public void OnEnable()
     {
         botaoVelocidade.Enable();
         botaoLinhas.Enable();
         botaoResetar.Enable();
+        botaoInformacoes.Enable();
         botaoVelocidade.performed += abrirMenuVelocidade;
         botaoLinhas.performed += desativarLinhas;
         botaoResetar.performed += resetar;
+        botaoInformacoes.performed += InformacoesVisiveis;
     }
 
     public void OnDisable()
@@ -136,8 +151,10 @@ public class MenuControlador : MonoBehaviour
         botaoVelocidade.Disable();
         botaoLinhas.Disable();
         botaoResetar.Disable();
+        botaoInformacoes.Disable();
         botaoVelocidade.performed -= abrirMenuVelocidade;
         botaoLinhas.performed -= desativarLinhas;
         botaoResetar.performed -= resetar;
+        botaoInformacoes.performed -= InformacoesVisiveis;
     }
 }

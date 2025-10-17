@@ -14,7 +14,7 @@ public class CinturaoAsteroides : MonoBehaviour
     public float larguraCinturao = 5f; 
     public float alturaCinturao = 10f;
     public float velocidade = 10f;
-    public Slider velocidadeEscala;
+    public MenuControlador menuControlador;
     public GameObject[] corposCelestes;
 
     private List<float> alturasY = new List<float>();
@@ -33,33 +33,25 @@ public class CinturaoAsteroides : MonoBehaviour
 
     void Update()
     {
-        velocidade = velocidadeBase * (velocidadeEscala.value * 0.1f);
+        velocidade = velocidadeBase * menuControlador.velocidade;
 
         for (int i = 0; i < asteroides.Count; i++)
         {
             if (asteroides[i] != null)
             {
-                if (!asteroides[i].GetComponent<Asteroide>().solto)
-                {
-                    asteroides[i].GetComponent<Rigidbody>().isKinematic = true;
-                    angulos[i] += velocidade * Time.deltaTime;
-                    float rad = angulos[i] * Mathf.Deg2Rad;
+                angulos[i] += velocidade * Time.deltaTime;
+                float rad = angulos[i] * Mathf.Deg2Rad;
 
-                    float deslocamento = deslocamentos[i];
+                float deslocamento = deslocamentos[i];
 
-                    float x = (eixoMaior + deslocamento) * Mathf.Cos(rad);
-                    float z = (eixoMenor + deslocamento) * Mathf.Sin(rad);
+                float x = (eixoMaior + deslocamento) * Mathf.Cos(rad);
+                float z = (eixoMenor + deslocamento) * Mathf.Sin(rad);
 
-                    Vector3 pos = centro.position + new Vector3(x, alturasY[i], z);
-                    asteroides[i].position = pos;
+                Vector3 pos = centro.position + new Vector3(x, alturasY[i], z);
+                asteroides[i].position = pos;
 
-                    // Rotação leve do asteroide
-                    asteroides[i].Rotate(Vector3.up * Time.deltaTime * 20f);
-                }
-                else
-                {
-                    asteroides[i].GetComponent<Rigidbody>().isKinematic = false;
-                }
+                // Rotação leve do asteroide
+                asteroides[i].Rotate(Vector3.up * Time.deltaTime * 20f);
             }
         }
     }
@@ -97,8 +89,6 @@ public class CinturaoAsteroides : MonoBehaviour
             {
                 transforms[j] = corposCelestes[j].transform;
             }
-
-            asteroide.GetComponent<GravidadeSimulada>().corposCelestes = transforms;
 
             string nomeBase = prefab.name; // Usa o nome do prefab como base
             string nomeUnico = nomeBase + "_" + i;
