@@ -12,6 +12,7 @@ public class Interacao : MonoBehaviour
     public Transform centro;
     public AudioSource segurarSom;
     public GameObject particulas;
+    public AudioSource audioDestruicao;
 
     private Rigidbody rigidbody;
     private XRController controladorDireito;
@@ -69,6 +70,7 @@ public class Interacao : MonoBehaviour
 
             Quaternion rotacao = Quaternion.FromToRotation(Vector3.up, colisao.contacts[0].normal);
             Instantiate(particulas, pontoImpacto, rotacao);
+            audioDestruicao.Play();
         }
     }
 
