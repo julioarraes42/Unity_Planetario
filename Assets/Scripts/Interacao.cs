@@ -35,20 +35,7 @@ public class Interacao : MonoBehaviour
 
     public void Largar()
     {
-        Toggle toggle = GetComponent<MenuInformacoesControler>().menuInstanciadoInformacoes.transform.Find("PermanecerOrbita/Toggle").GetComponent<Toggle>();
-        if (toggle.isOn)
-        {
-            rigidbody.isKinematic = true;
-            rigidbody.velocity = Vector3.zero;
-            rigidbody.angularVelocity = Vector3.zero;
-            rigidbody.transform.localPosition = Vector3.zero;
-            rigidbody.transform.localRotation = Quaternion.identity;
-        }
-        else
-        {
-            rigidbody.isKinematic = false;
-        }
-
+        rigidbody.isKinematic = false;
     }
     private void OnCollisionEnter(Collision colisao)
     {
